@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>todo-demo</title>
+</head>
+
+<body>
+  <div id="todo">
+    <ol>
+      <li v-for="todo in todos" v-on:dblclick="editTodo($event, todo)">
+        <span class="flag" v-on:click="isDone(todo)" v-bind:class="{'complete': todo.complete}"></span>
+        <span class="message" v-bind:class="{'font-line':todo.isFont}">{{todo.text}}</span>
+        <input v-model="editText" type="text" v-on:keyup.enter="updateContent(todo)" v-bind:class="{'is-show': todo.isShow}" class="edit-content" value="{{todo.editContent}}" v-model="todo.edit">
+        <span v-on:click="removeTodo($index)" class="delete">X</span>
+      </li>
+    </ol>
+    <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo" class="content">
+  </div>
+  <script src="assets/js/index.js"></script>
+</body>
+
+</html>

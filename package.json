@@ -1,0 +1,21 @@
+{
+  "name": "vue-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server  --display-error-details --colors --content-base ./ --hot"
+  },
+  "devDependencies": {
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-stream": "^2.1.1",
+    "vue": "^1.0.17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ylxbsoftware/vue-todo-demo.git"
+  },
+  "author": "Wan Bao",
+  "license": "ISC"
+}
