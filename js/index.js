@@ -1,5 +1,6 @@
 var Vue = require('vue');
-
+var VueRouter = require('Vue-router');
+Vue.use(VueRouter);
 require('../css/index.css');
 
 new Vue({
@@ -45,11 +46,43 @@ new Vue({
       }
     },
 
-    updateContent: function(todo) {
+    updateContent: function(e, todo) {
 
-      todo.text = todo.edit;
+      todo.text = e.target.value;
       todo.editContent = '';
       todo.isShow = false;
     }
   }
 });
+
+var all = Vue.extend({
+  template: '<p>这是一个神奇的世界</p>'
+});
+
+var no = Vue.extend({
+  template: '<p>这是一个很不错的世界</p>'
+});
+
+var yes = Vue.extend({
+  template: '<p>这是一个很nice的世界</p>'
+});
+
+var app = Vue.extend({});
+
+var router = new VueRouter();
+
+router.map({
+  '/all': {
+    component: all
+  },
+
+  '/yes': {
+    component: yes
+  },
+
+  '/no': {
+    component: no
+  }
+});
+
+router.start(app, '#list');

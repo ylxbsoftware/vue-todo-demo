@@ -12,11 +12,19 @@
       <li v-for="todo in todos" v-on:dblclick="editTodo($event, todo)">
         <span class="flag" v-on:click="isDone(todo)" v-bind:class="{'complete': todo.complete}"></span>
         <span class="message" v-bind:class="{'font-line':todo.isFont}">{{todo.text}}</span>
-        <input v-model="editText" type="text" v-on:keyup.enter="updateContent(todo)" v-bind:class="{'is-show': todo.isShow}" class="edit-content" value="{{todo.editContent}}" v-model="todo.edit">
+        <input v-model="editText" type="text" v-on:keyup.enter="updateContent($event,todo)" v-bind:class="{'is-show': todo.isShow}" class="edit-content" value="{{todo.editContent}}">
         <span v-on:click="removeTodo($index)" class="delete">X</span>
       </li>
     </ol>
     <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo" class="content">
+  </div>
+  <div id="list">
+      <ul>
+        <li><a v-link="{path: '/all'}">全部</a></li>
+        <li><a v-link="{path: '/no'}">未完成</a></li>
+        <li><a v-link="{path: '/yes'}">已完成</a></li>
+      </ul>
+      <router-view></router-view>
   </div>
   <script src="assets/js/index.js"></script>
 </body>
