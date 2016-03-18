@@ -2,6 +2,7 @@ var Vue = require('vue');
 var VueRouter = require('Vue-router');
 Vue.use(VueRouter);
 require('../css/index.css');
+var YES = require('../yes.vue');
 
 new Vue({
   el: '#todo',
@@ -63,26 +64,14 @@ var no = Vue.extend({
   template: '<p>这是一个很不错的世界</p>'
 });
 
-var yes = Vue.extend({
-  template: '<p>这是一个很nice的世界</p>'
-});
-
 var app = Vue.extend({});
 
 var router = new VueRouter();
 
 router.map({
-  '/all': {
-    component: all
-  },
-
-  '/yes': {
-    component: yes
-  },
-
-  '/no': {
-    component: no
-  }
+  '/all': { component: all },
+  '/yes': { component: YES },
+  '/no': { component: no }
 });
 
 router.start(app, '#list');
